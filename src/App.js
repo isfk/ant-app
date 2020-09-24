@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd-mobile';
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <Button type="ghost" size="small" inline>small</Button>
       </header>
     </div>
   );
