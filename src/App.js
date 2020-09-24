@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button, Tabs, WhiteSpace, Badge } from 'antd-mobile';
+import { NavBar, Icon, Button, Tabs, WhiteSpace, Badge } from 'antd-mobile';
+
+import { Plugins, StatusBarStyle } from "@capacitor/core";
+const { StatusBar } = Plugins;
 
 const tabs = [
   { title: <Badge text={'3'}>First Tab</Badge> },
@@ -17,6 +20,16 @@ const tabs2 = [
 
 const TabExample = () => (
   <div>
+    <NavBar
+      mode="dark"
+      leftContent={[
+        <Icon key="0" type="loading" style={{ marginLeft: '16px' }} />,
+      ]}
+      rightContent={[
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+      ]}
+    >NavBar</NavBar>
+
     <Tabs tabs={tabs}
       initialPage={1}
       onChange={(tab, index) => { console.log('onChange', index, tab); }}
@@ -51,6 +64,13 @@ const TabExample = () => (
     <WhiteSpace />
   </div>
 );
+
+StatusBar.setStyle({
+  style: StatusBarStyle.Light,
+});
+StatusBar.setBackgroundColor({
+  color: "#108ee9",
+});
 
 function App() {
   return (
